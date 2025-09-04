@@ -1,4 +1,4 @@
-# 🛒 PERN E-commerce
+# 🛒 PERN-STACK E-commerce
 E-commerce web application built with **PERN Stack** (PostgreSQL,Express.js, React.js, Node.js).  
 This project allows users to browse products, add items to the cart, and proceed to checkout.
 
