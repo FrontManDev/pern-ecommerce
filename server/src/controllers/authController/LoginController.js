@@ -1,6 +1,6 @@
 const { prisma } = require('../../../prisma/prisma'); // Import Prisma client
 const bcrypt = require('bcrypt'); // Import bcrypt for password hashing and comparison
-
+const { Generate_accestoken } = require('../../util/Generate_accestoken'); // Import Function of Token Generate
 // Login controller function
 const LoginController = async (req, res) => {
     try {
@@ -31,10 +31,11 @@ const LoginController = async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ message: 'incorrect password or email' });
         }
-
+        // Generate Token fo user
+        const token = Generate_accestoken(user.id, user.role);
         // If login is successful, return a welcome message
-        return res.status(200).json({ message: `welcome ${user.firstName + ' ' + user.lastName}` });
-        
+        return res.status(200).json({ message: `welcome ${user.firstName + ' ' + user.lastName}`, token: token });
+
     } catch (error) {
         // Catch any unexpected errors and return a 500 response
         return res.status(500).json({ message: error.message });

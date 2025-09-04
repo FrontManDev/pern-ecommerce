@@ -3,6 +3,7 @@ const { prisma } = require('../../../prisma/prisma');
 
 // Import bcrypt for hashing passwords
 const bcrypt = require('bcrypt');
+const { Generate_accestoken } = require('../../util/Generate_accestoken'); // Import Function of Token Generate
 
 // Controller function to handle user signup
 const SignUpController = async (req, res) => {
@@ -32,8 +33,11 @@ const SignUpController = async (req, res) => {
             }
         });
 
+        // Generate Token fo user
+        const token = Generate_accestoken(user.id, user.role); 
+
         // Send a success response with the created user
-        return res.status(200).json({ message: 'Welcome', user });
+        return res.status(200).json({ message: 'Welcome', user, token });
 
     } catch (error) {
         // Handle any unexpected errors and send a 500 Internal Server Error
