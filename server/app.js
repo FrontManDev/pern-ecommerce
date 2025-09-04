@@ -50,6 +50,13 @@ const CategoryById = require('./src/routes/category/GetCategoryById');
 // For example, Get /api/Category  will be handled by this router
 app.use('/api', CategoryById);
 
+// Import the Category router from the specified path
+const UpdateCategory = require('./src/routes/category/UpdateCategory');
+
+// Use the Category router for all routes starting with '/api'
+// For example, Get /api/updatecategory  will be handled by this router
+app.use('/api', UpdateCategory);
+
 // Start the server and listen on port 5000
 app.listen(5000, () => {
     console.log('Server is running at http://localhost:5000');
