@@ -9,7 +9,7 @@ const { Generate_accestoken } = require('../../util/Generate_accestoken'); // Im
 const SignUpController = async (req, res) => {
     try {
         // Destructure user data from the request body
-        const { firstName, lastName, email, password, address, image } = req.body;
+        const { firstName, lastName, email, password, address, role, image } = req.body;
 
         // Validate that all required fields are provided
         if (!firstName || !lastName || !email || !password || !address) {
@@ -29,12 +29,13 @@ const SignUpController = async (req, res) => {
                 email,
                 password: hashedPassword, // Store hashed password
                 address,
-                image // Optional user image
+                image, // Optional user image
+                role // ADMIN or USER
             }
         });
 
         // Generate Token fo user
-        const token = Generate_accestoken(user.id, user.role); 
+        const token = Generate_accestoken(user.id, user.role);
 
         // Send a success response with the created user
         return res.status(200).json({ message: 'Welcome', user, token });
