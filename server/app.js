@@ -22,6 +22,13 @@ const Login = require('./src/routes/auth/Login');
 // For example, POST /api/signup will be handled by this router
 app.use('/api', Login);
 
+// Import the Category router from the specified path
+const Category = require('./src/routes/category/AddCategory');
+
+// Use the Category router for all routes starting with '/api'
+// For example, POST /api/Category will be handled by this router
+app.use('/api', Category );
+
 // Start the server and listen on port 5000
 app.listen(5000, () => {
     console.log('Server is running at http://localhost:5000');
