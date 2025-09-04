@@ -26,7 +26,7 @@ const AddCategory = async (req, res) => {
         }
 
         // Return a success message if everything went well
-        return res.status(200).json({ message: 'The category is created successfully' });
+        return res.status(200).json({ message: 'The category is created successfully' ,Category:Category});
     } catch (error) {
         // Catch any unexpected errors and return a 500 response
         return res.status(500).json({ Error: error.message });

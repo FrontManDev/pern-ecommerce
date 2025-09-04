@@ -33,15 +33,22 @@ app.use('/api', AddCategory);
 const AllCategory = require('./src/routes/category/GetAllCategory');
 
 // Use the Category router for all routes starting with '/api'
-// For example, POST /api/AllCategory  will be handled by this router
+// For example, Get /api/AllCategory  will be handled by this router
 app.use('/api', AllCategory);
 
 // Import the Category router from the specified path
 const DeleteCategory = require('./src/routes/category/DeleteCategory');
 
 // Use the Category router for all routes starting with '/api'
-// For example, POST /api/DeleteCategory  will be handled by this router
+// For example, Delete /api/DeleteCategory  will be handled by this router
 app.use('/api', DeleteCategory);
+
+// Import the Category router from the specified path
+const CategoryById = require('./src/routes/category/GetCategoryById');
+
+// Use the Category router for all routes starting with '/api'
+// For example, Get /api/Category  will be handled by this router
+app.use('/api', CategoryById);
 
 // Start the server and listen on port 5000
 app.listen(5000, () => {
