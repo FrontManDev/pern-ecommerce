@@ -11,7 +11,7 @@ This project allows users to browse products, add items to the cart, and proceed
 - PostgreSQL database with migrations.
 
 ## 🛠️ Tech Stack
-- **Frontend**: React, React Router, Tailwind CSS (or Material UI).
+- **Frontend**: React, React Router, CSS(Module.css).
 - **Backend**: Node.js, Express.js.
 - **Database**: PostgreSQL.
 - **Orm**:Prisma
