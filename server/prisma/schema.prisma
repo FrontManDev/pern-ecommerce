@@ -18,6 +18,7 @@ enum Role {
   ADMIN
 }
 
+// User Model
 model User {
   id        String   @id @default(uuid())
   firstName String
