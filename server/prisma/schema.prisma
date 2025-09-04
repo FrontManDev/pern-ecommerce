@@ -20,12 +20,29 @@ enum Role {
 
 // User Model
 model User {
-  id        String   @id @default(uuid())
+  id        String  @id @default(uuid())
   firstName String
   lastName  String
-  email     String   @unique
+  email     String  @unique
   password  String
   address   String
-  image     String?   
+  image     String?
   role      Role    @default(USER)
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  Title       String
+  Description String
+  Image       String?
+  Products    Procuts[]
+}
+
+model Procuts {
+  id          String   @id @default(uuid())
+  Title       String
+  Description String
+  Prix        Float
+  Category    Category @relation(fields: [CatId], references: [id])
+  CatId       String
 }
