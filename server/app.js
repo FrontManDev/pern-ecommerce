@@ -8,54 +8,7 @@ const app = express();
 // This allows us to access req.body in POST/PUT requests
 app.use(express.json());
 
-// Import the Signup router from the specified path
-const Signup = require('./src/routes/auth/SignUp');
-
-// Use the Signup router for all routes starting with '/api'
-// For example, POST /api/signup will be handled by this router
-app.use('/api', Signup);
-
-// Import the Signup router from the specified path
-const Login = require('./src/routes/auth/Login');
-
-// Use the Signup router for all routes starting with '/api'
-// For example, POST /api/signup will be handled by this router
-app.use('/api', Login);
-
-// Import the Category router from the specified path
-const AddCategory = require('./src/routes/category/AddCategory');
-
-// Use the Category router for all routes starting with '/api'
-// For example, POST /api/Category will be handled by this router
-app.use('/api', AddCategory);
-
-// Import the Category router from the specified path
-const AllCategory = require('./src/routes/category/GetAllCategory');
-
-// Use the Category router for all routes starting with '/api'
-// For example, Get /api/AllCategory  will be handled by this router
-app.use('/api', AllCategory);
-
-// Import the Category router from the specified path
-const DeleteCategory = require('./src/routes/category/DeleteCategory');
-
-// Use the Category router for all routes starting with '/api'
-// For example, Delete /api/DeleteCategory  will be handled by this router
-app.use('/api', DeleteCategory);
-
-// Import the Category router from the specified path
-const CategoryById = require('./src/routes/category/GetCategoryById');
-
-// Use the Category router for all routes starting with '/api'
-// For example, Get /api/Category  will be handled by this router
-app.use('/api', CategoryById);
-
-// Import the Category router from the specified path
-const UpdateCategory = require('./src/routes/category/UpdateCategory');
-
-// Use the Category router for all routes starting with '/api'
-// For example, Get /api/updatecategory  will be handled by this router
-app.use('/api', UpdateCategory);
+app.use('/api',require('./src/routes'));
 
 // Start the server and listen on port 5000
 app.listen(5000, () => {
