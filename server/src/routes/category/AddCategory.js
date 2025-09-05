@@ -6,7 +6,7 @@ const { AddCategory } = require('../../controllers/categoryController/AddCategor
 
 // Define a POST route for adding a new category
 // When a POST request is made to '/addcategory', the AddCategory controller is executed
-route.post('/addcategory', AddCategory);
+route.post('/add', AddCategory);
 
 // Export the router so it can be used in the main app
 module.exports = route;

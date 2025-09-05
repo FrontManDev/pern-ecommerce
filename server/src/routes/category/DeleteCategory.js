@@ -6,7 +6,7 @@ const { DeletedCategory } = require('../../controllers/categoryController/Delete
 
 // Define a POST route for delete a category
 // When a POST request is made to '/deleteCategory', the deleteCategory controller is executed
-route.delete('/deleteCategory', DeletedCategory);
+route.delete('/delete', DeletedCategory);
 
 // Export the router so it can be used in the main app
 module.exports = route;
