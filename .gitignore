@@ -1,0 +1,8 @@
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore Prisma generated files
+prisma/generated/
+
+# Ignore env files
+.env
