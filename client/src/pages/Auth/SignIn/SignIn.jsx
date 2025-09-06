@@ -2,10 +2,10 @@ import { useState } from 'react';
 import styles from './SignIn.module.css';
 import axios from 'axios';
 export default function SignIn() {
-    const [SignInData, SetSigninData] = useState({ firstName: '', lastName: '', email: '', password: '', address: '', role: '', image: '' });
+    const [SignInData, SetSigninData] = useState({ username: '', email: '', password: '', conffirm_password: '' });
     const [Loading, SetLoading] = useState(false);
     const [Error, SetError] = useState(null);
-    async function Login(e) {
+    async function SignIn(e) {
         try {
             e.preventDefault();
             const response = await axios.post('http://localhost:5000/api/auth/signin',
@@ -13,6 +13,7 @@ export default function SignIn() {
                     username: SignInData.username,
                     email: SignInData.email,
                     password: SignInData.password,
+                    conffirm_password: SignInData.conffirm_password
                 }
             );
             console.log(response.data.message, response.data.token);
@@ -22,16 +23,26 @@ export default function SignIn() {
         }
     }
     return (
-        <div className={styles.LoginPage}>
-            <form className={styles.LoginForm} onSubmit={Login}>
-                <h1 className={styles.FormTitle}>Login</h1>
+        <div className={styles.SignInPage}>
+            <form className={styles.SignInForm} onSubmit={SignIn}>
+                <h1 className={styles.FormTitle}>SignIn</h1>
+                <div className={styles.InputForm}>
+                    <label htmlFor="">Usename</label>
+                    <input
+                        type="email"
+                        required
+                        onChange={(e) =>
+                            SetSigninData((prev) => ({ ...prev, username: e.target.value }))
+                        }
+                    />
+                </div>
                 <div className={styles.InputForm}>
                     <label htmlFor="">Email</label>
                     <input
                         type="email"
                         required
                         onChange={(e) =>
-                            SetLoginData((prev) => ({ ...prev, Email: e.target.value }))
+                            SetSigninData((prev) => ({ ...prev, email: e.target.value }))
                         }
                     />
                 </div>
@@ -41,13 +52,23 @@ export default function SignIn() {
                         type="password"
                         required
                         onChange={(e) =>
-                            SetLoginData((prev) => ({ ...prev, Password: e.target.value }))
+                            SetSigninData((prev) => ({ ...prev, password: e.target.value }))
+                        }
+                    />
+                </div>
+                <div className={styles.InputForm}>
+                    <label htmlFor="">Confirm_Password</label>
+                    <input
+                        type="password"
+                        required
+                        onChange={(e) =>
+                            SetSigninData((prev) => ({ ...prev, conffirm_password: e.target.value }))
                         }
                     />
                 </div>
                 <div className={styles.InputForm}>
                     <button>Login</button>
-                    <p>don't have account?create</p>
+                    <p>you have account?Login</p>
                 </div>
             </form>
         </div>

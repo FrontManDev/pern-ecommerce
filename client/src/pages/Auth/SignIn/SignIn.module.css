@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.SignInPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a365d 0%, #2a4365 100%);
+    padding: 20px;
+}
+
+.SignInForm {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    transition: transform 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.FormTitle {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.InputForm {
+    margin-bottom: 25px;
+}
+
+.InputForm label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.InputForm input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    background-color: #f7fafc;
+}
+
+.InputForm input:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+    background-color: #fff;
+}
+
+.InputForm button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #3182ce, #00b5d8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.InputForm button:hover {
+    background: linear-gradient(to right, #2c5282, #00a3c4);
+    box-shadow: 0 5px 15px rgba(49, 130, 206, 0.3);
+}
+
+.InputForm p {
+    text-align: center;
+    color: #718096;
+    font-size: 14px;
+    margin: 0;
+}
+
+.InputForm p a {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    margin-left: 5px;
+}
+
+.InputForm p a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+.techIcon {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+@media (max-width: 480px) {
+    .SignInForm {
+        padding: 25px;
+    }
+}
