@@ -9,14 +9,19 @@ const { Generate_accestoken } = require('../../util/Generate_accestoken'); // Im
 const SignUpController = async (req, res) => {
     try {
         // Destructure user data from the request body
-        const { firstName, lastName, email, password, address, role, image } = req.body;
+        const { username, email, password, conffirm_password } = req.body;
 
         // Validate that all required fields are provided
-        if (!firstName || !lastName || !email || !password || !address) {
+        if (!username || !email || !password || !conffirm_password) {
             // If any field is missing, send a 400 Bad Request response
             return res.status(400).json({ message: "Enter all the information" });
         }
 
+        // Check if Password & conffirm_password  is match
+        if (password !== conffirm_password) {
+            // send a 400 Bad Request response
+            return res.status(400).json({ message: "Password is Not Match" });
+        }
         // Hash the password before storing it in the database
         // The second parameter (10) is the salt rounds for bcrypt
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -24,12 +29,9 @@ const SignUpController = async (req, res) => {
         // Create a new user in the database using Prisma
         const user = await prisma.user.create({
             data: {
-                firstName,
-                lastName,
+                username,
                 email,
                 password: hashedPassword, // Store hashed password
-                address,
-                image, // Optional user image
                 role // ADMIN or USER
             }
         });
