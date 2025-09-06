@@ -1,8 +1,11 @@
 // Import the Express framework
 const express = require('express');
-
+// Import Corse middelware
+const cors = require('cors')
 // Create an instance of an Express application
-const app = express();
+var app = express()
+// middelware to let every origins 
+app.use(cors())
 
 // Middleware to parse incoming JSON requests
 // This allows us to access req.body in POST/PUT requests

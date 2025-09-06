@@ -25,9 +25,6 @@
     border: 1px solid #e2e8f0;
 }
 
-.LoginForm:hover {
-    transform: translateY(-5px);
-}
 
 .FormTitle {
     text-align: center;
@@ -85,7 +82,6 @@
 
 .InputForm button:hover {
     background: linear-gradient(to right, #2c5282, #00a3c4);
-    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(49, 130, 206, 0.3);
 }
 
