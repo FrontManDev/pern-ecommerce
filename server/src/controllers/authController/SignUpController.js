@@ -9,7 +9,7 @@ const { Generate_accestoken } = require('../../util/Generate_accestoken'); // Im
 const SignUpController = async (req, res) => {
     try {
         // Destructure user data from the request body
-        const { username, email, password, conffirm_password } = req.body;
+        const { username, email, password, conffirm_password, role } = req.body;
 
         // Validate that all required fields are provided
         if (!username || !email || !password || !conffirm_password) {

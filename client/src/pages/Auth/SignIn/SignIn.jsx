@@ -8,7 +8,7 @@ export default function SignIn() {
     async function SignIn(e) {
         try {
             e.preventDefault();
-            const response = await axios.post('http://localhost:5000/api/auth/signin',
+            const response = await axios.post('http://localhost:5000/api/auth/Signup',
                 {
                     username: SignInData.username,
                     email: SignInData.email,
@@ -29,7 +29,7 @@ export default function SignIn() {
                 <div className={styles.InputForm}>
                     <label htmlFor="">Usename</label>
                     <input
-                        type="email"
+                        type="text"
                         required
                         onChange={(e) =>
                             SetSigninData((prev) => ({ ...prev, username: e.target.value }))
